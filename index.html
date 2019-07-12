@@ -252,14 +252,14 @@ if (navigator.mediaDevices.getUserMedia) {
                               color: 0x996633,
 								 // envMap: scCube,
 								specular: 0x050505,
-				shininess: 74
+				shininess: 75
 				} );
 
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
 				mesh.scale.set( 0.8, 0.8, 0.8 );
 				
-					// Sets up mesh rotation animation.
+					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
 			
 			object.rotateX(THREE.Math.degToRad(degreeX));
@@ -302,39 +302,6 @@ if (navigator.mediaDevices.getUserMedia) {
 //to sit standing up
 //rotateObject(mesh, -90,-90,-90);
 rotateObject2(mesh2, -90,0,0);
-} );
-}
-
-		////////////
-		//	Earth//
-		///////////
-		loadMymodelIII();
-	function loadMymodelII( callback ) {
-		var loader2 = new THREE.JSONLoader();
-		loader2.load( 'obj/models/world.js', function( geometry ) {
-		 var material = new THREE.MeshPhongMaterial( {
-				    side: THREE.DoubleSide,
-                                //emissive: 0x154360,
-								 map: textureLoader.load('Images/earth-day.jpg'),
-                              //envMap: scCube,
-								specular: 0x050505,
-				shininess: 3
-				} );
- 
-				mesh3 = new THREE.Mesh( geometry, material );
-				scene.add( mesh3 );
-				mesh3.scale.set( 0.2, 0.2, 0.2 );
-				mesh3.position.set( 0, -7, 0 );
-					// Setsup mesh rotation animation.
-	  function rotateObject2(object, degreeX=0, degreeY= 0, degreeZ=0){
-			
-			object.rotateX(THREE.Math.degToRad(degreeX));
-			object.rotateY(THREE.Math.degToRad(degreeY));
-			object.rotateZ(THREE.Math.degToRad(degreeZ));
-}
-//to sit standing up
-//rotateObject(mesh, -90,-90,-90);
-rotateObject2(mesh3, -90,0,0);
 } );
 }
 		
@@ -496,7 +463,6 @@ rotateObject2(mesh3, -90,0,0);
 		
 		mesh.rotation.y = mesh.rotation.y - 0.01;
 		mesh2.rotation.y = mesh.rotation.y - 0.01;
-		mesh3.rotation.y = mesh.rotation.y - 0.01;
 		 
 			particleSystem.update( tick );
 //camera.rotation.y = 90;
