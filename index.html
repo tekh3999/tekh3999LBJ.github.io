@@ -257,13 +257,13 @@ if (navigator.mediaDevices.getUserMedia) {
 				scene.add( mesh );
 				 mesh.scale.set( 0.2, 0.2, 0.2 );
 				mesh.position.set( 0, -7, 0 );
-				//mesh.visible = false;
+			material.visible = false;
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
 			
 			object.rotateX(THREE.Math.degToRad(degreeX));
 			object.rotateY(THREE.Math.degToRad(degreeY));
-			object.rotateZ(THREE.Math.degToRad(degreeZ));
+			object.rotateZ(THREE.Math.degToRad(degreeZ));aw
 			}
 		//to sit standing up
 			//rotateObject(mesh, -90,-90,-90);
