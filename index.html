@@ -249,7 +249,7 @@ if (navigator.mediaDevices.getUserMedia) {
                                 //emissive: 0x154360,
 								map: textureLoader.load('Images/earth-day.jpg'),
                               //envMap: scCube,
-							  opacity = .000001,
+							  opacity: .000001,
 								specular: 0x050505,
 				shininess: 3
 				} );
@@ -258,6 +258,7 @@ if (navigator.mediaDevices.getUserMedia) {
 				scene.add( mesh );
 				 mesh.scale.set( 0.2, 0.2, 0.2 );
 				mesh.position.set( 0, -7, 0 );
+				
 			//material.visible = false;
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
