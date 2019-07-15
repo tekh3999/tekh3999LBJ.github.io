@@ -239,26 +239,24 @@ if (navigator.mediaDevices.getUserMedia) {
 			//loader.load('obj/myfemale4/genesisfemale-5.js', function (geometry) {
 			    //loader.load( 'obj/books/tpomA.js', function( geometry ) {
 				 
-				loader.load( 'obj/models/spaceshuttle.js', function( geometry ) {
-			 
+				//loader.load( 'obj/models/spaceshuttle.js', function( geometry ) {
+			 loader2.load( 'obj/models/world.js', function( geometry ) {
 				//loader.load( 'obj/models/Helmet_base-model.js', function( geometry ) {
 				 
 			//loader.load( 'obj/models/building_model.js', function( geometry ) {
-				 var material = new THREE.MeshPhongMaterial( {
-				  // map: textureLoader.load('Images/Texans-logoUV.jpg'),
-				side: THREE.DoubleSide,
-                                emissive: 0x154360,
-								//map: map,			add if you want to use texture map
-                              color: 0x996633,
-								 // envMap: scCube,
+				  var material = new THREE.MeshPhongMaterial( {
+				    side: THREE.DoubleSide,
+                                //emissive: 0x154360,
+								 map: textureLoader.load('Images/earth-day.jpg'),
+                              //envMap: scCube,
 								specular: 0x050505,
-				shininess: 75
+				shininess: 3
 				} );
 
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
-				mesh.scale.set( 0.8, 0.8, 0.8 );
-				
+				 mesh.scale.set( 0.2, 0.2, 0.2 );
+				mesh.position.set( 0, -7, 0 );
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
 			
