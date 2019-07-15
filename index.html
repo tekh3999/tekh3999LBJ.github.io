@@ -247,7 +247,7 @@ if (navigator.mediaDevices.getUserMedia) {
 				  var material = new THREE.MeshPhongMaterial( {
 				    side: THREE.DoubleSide,
                                 //emissive: 0x154360,
-								// map: textureLoader.load('Images/earth-day.jpg'),
+								map: textureLoader.load('Images/earth-day.jpg'),
                               //envMap: scCube,
 								specular: 0x050505,
 				shininess: 3
@@ -257,7 +257,7 @@ if (navigator.mediaDevices.getUserMedia) {
 				scene.add( mesh );
 				 mesh.scale.set( 0.2, 0.2, 0.2 );
 				mesh.position.set( 0, -7, 0 );
-				mesh.visible = flase;
+				mesh.visible = false;
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
 			
