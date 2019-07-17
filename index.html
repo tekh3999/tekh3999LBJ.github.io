@@ -279,11 +279,12 @@ if (navigator.mediaDevices.getUserMedia) {
 		loadMymodelII();
 	function loadMymodelII( callback ) {
 		var loader2 = new THREE.JSONLoader();
-		loader2.load( 'obj/models/world.js', function( geometry ) {
+		//loader2.load( 'obj/models/world.js', function( geometry ) {
+		loader2.load( 'obj/models/LBJ_model.js', function( geometry ) {
 		 var material = new THREE.MeshPhongMaterial( {
 				    side: THREE.DoubleSide,
                                 //emissive: 0x154360,
-								 map: textureLoader.load('Images/earth-day.jpg'),
+								// map: textureLoader.load('Images/earth-day.jpg'),
                               //envMap: scCube,
 								specular: 0x050505,
 				shininess: 3
@@ -365,7 +366,7 @@ rotateObject2(mesh2, -90,0,0);
 				maxParticles: 2500
 			} );
 
-		 scene.add( particleSystem );
+		// scene.add( particleSystem );
 
 			// options passed during each spawned
 
