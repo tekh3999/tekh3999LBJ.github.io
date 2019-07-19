@@ -280,11 +280,11 @@ if (navigator.mediaDevices.getUserMedia) {
 	function loadMymodelII( callback ) {
 		var loader2 = new THREE.JSONLoader();
 		//loader2.load( 'obj/models/world.js', function( geometry ) {
-		loader2.load( 'obj/models/LBJ_model.js', function( geometry ) {
+		loader2.load( 'obj/models/LBJ_model_II.js', function( geometry ) {
 		 var material = new THREE.MeshPhongMaterial( {
 				    side: THREE.DoubleSide,
                                 //emissive: 0x154360,
-								// map: textureLoader.load('Images/earth-day.jpg'),
+							 map: textureLoader.load('Images/diffuse_Image_1_LBJ_texture_II.jpg'),
                               //envMap: scCube,
 								specular: 0x050505,
 				shininess: 3
