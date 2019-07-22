@@ -212,10 +212,10 @@ if (navigator.mediaDevices.getUserMedia) {
 	///////////////////////////////////////////////
 	//			Add Lights						 //
 	//////////////////////////////////////////////
-	 var lightdi = new THREE.DirectionalLight( 0xffddcc, 1.5 )
+	 var lightdi = new THREE.DirectionalLight( 0xffddcc, 1 )
 	 lightdi.position.set( 0, 100, 0 );
 			scene.add( lightdi );
-		var lightamb = new THREE.AmbientLight(  0x000000, 5 );
+		var lightamb = new THREE.AmbientLight(  0x000000, 1 );
 			 lightamb.position.set( 0, 50, 0 );
 			scene.add( lightamb );
 			
@@ -284,10 +284,10 @@ if (navigator.mediaDevices.getUserMedia) {
 		 var material = new THREE.MeshPhongMaterial( {
 				    side: THREE.DoubleSide,
                                 //emissive: 0x154360,
-							 map: textureLoader.load('Images/diffuse_Image_1_LBJ_1028.jpg'),
+							 map: textureLoader.load('Images/diffuse_Image_1_LBJ_1028_II.jpg'),
                               //envMap: scCube,
-								specular: 0x050505,
-				shininess: 3
+								//specular: 0x050505,
+				shininess: 1
 				} );
  
 				mesh2 = new THREE.Mesh( geometry, material );
