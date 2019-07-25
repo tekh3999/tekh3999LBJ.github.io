@@ -209,7 +209,7 @@
 			//loader.load('obj/myfemale4/genesisfemale-5.js', function (geometry) {
 			    //loader.load( 'obj/books/tpomA.js', function( geometry ) {
 				//loader.load( 'obj/books/bandmd.js', function( geometry ) {
-				loader.load( 'obj/models/LBJ_body.js', function( geometry ) {
+				loader.load( 'obj/models/spaceshuttle.js', function( geometry ) {
 
 
 				var material = new THREE.MeshPhongMaterial( {
@@ -221,7 +221,7 @@ transparent : true,
 				   // map: textureLoader.load('obj/books/diffuse_Image_1_AtlasUVs.jpg'),
                     //ambientMap: textureLoader.load('obj/books/ambient_Image_1_AtlasUVs.jpg'),
 					
-				 map: textureLoader.load('Images/diffuse_Image_1_LBJ_sub.jpg'),
+					//map: textureLoader.load('obj/myfemale4/diffuse_Image_1_LBJ_sub.jpg'),
 					//female
 					//map: textureLoader.load( 'obj/myfemale4/diffuse_Image_1_genesis5.jpg' ),
 					//specularMap: textureLoader.load( 'obj/myfemale4/specular_Image_1_genesis5.jpg' ),
@@ -231,7 +231,7 @@ transparent : true,
 					shininess: 0
 				} );
 
-			var	mesh = new THREE.Mesh( geometry, material );
+				mesh = new THREE.Mesh( geometry, material );
 				
 				scene.add( mesh );
 				mesh.scale.set( 0.8, 0.8, 0.8 );
