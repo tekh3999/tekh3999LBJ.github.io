@@ -191,11 +191,11 @@
 	//////////////////////////////////////////////
 	var light = new THREE.DirectionalLight( 0xccccff, 1 );
 			light.position.set( 100, 100, 100 );
-			//scene.add( light );
+			scene.add( light );
 			
 			var light = new THREE.DirectionalLight( 0xffddcc, 1 );
 			light.position.set( 100, 100, 100 );
-			//scene.add( light );
+			scene.add( light );
 	/////////////////////////////////////////////////////
 	//     add json object                             //
 	/////////////////////////////////////////////////////
@@ -215,7 +215,7 @@ loader.load( 'obj/models/LBJ_body.js', function( geometry ) {
 				var material = new THREE.MeshPhongMaterial( {
 				    specular: 0x211111,
 transparent : true,
-		opacity: 0.9,
+		//opacity: 0.9,
 		 
 							//book
 				   // map: textureLoader.load('obj/books/diffuse_Image_1_AtlasUVs.jpg'),
