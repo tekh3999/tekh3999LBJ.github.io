@@ -243,8 +243,8 @@ transparent : true,
 			object.rotateZ(THREE.Math.degToRad(degreeZ));
 }
 //to sit standing up
-rotateObject(mesh, -90,-90,-90);
-//rotateObject(mesh, 0,0,0);
+//rotateObject(mesh, -90,-90,-90);
+rotateObject(mesh, 0,0,0);
 
 
 			} );
@@ -259,7 +259,7 @@ rotateObject(mesh, -90,-90,-90);
 	onRenderFcts.push(function(){
 		renderer.render( scene, camera );
 		
-		mesh.rotation.y = mesh.rotation.y + 0.01;
+		//mesh.rotation.y = mesh.rotation.y + 0.01;
 	})
 
 	// run the rendering loop
