@@ -4,8 +4,7 @@
 <!--<meta name="viewport" container="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">-->
 <!-- three.js library -->
 <script src='vendor/three.js/build/three.min.js'></script>
-<script src='vendor/HemisphereLight.js'></script>
-<script src='vendor/HemisphereLightHelper.js'></script>
+ 
 <!-- ar.js -->
 <script src="build/ar.js"></script>
 
@@ -16,7 +15,7 @@
     <script src="./js/GPUParticleSystem.js"></script>
 	
 	
-<script>THREEx.ArToolkitContext.baseURL = ''</script>
+ <script>THREEx.ArToolkitContext.baseURL = ''</script>
 
 <style>
 #container {
@@ -212,10 +211,10 @@ if (navigator.mediaDevices.getUserMedia) {
 	///////////////////////////////////////////////
 	//			Add Lights						 //
 	//////////////////////////////////////////////
-	 var lightdi = new THREE.DirectionalLight( 0xffddcc, 1.5 )
+	 var lightdi = new THREE.DirectionalLight( 0xffddcc, 1 )
 	 lightdi.position.set( 0, 100, 0 );
 			scene.add( lightdi );
-		var lightamb = new THREE.AmbientLight(  0x000000, 5 );
+		var lightamb = new THREE.AmbientLight(  0x000000, 1 );
 			 lightamb.position.set( 0, 50, 0 );
 			scene.add( lightamb );
 			
@@ -256,7 +255,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
-				 mesh.scale.set( 0.4, 0.4, 0.4 );
+				 mesh.scale.set( 2.5, 2.5, 2.5 );
 				mesh.position.set( 0, -2, 0 );
 				
 			//material.visible = false;
@@ -280,19 +279,19 @@ if (navigator.mediaDevices.getUserMedia) {
 	function loadMymodelII( callback ) {
 		var loader2 = new THREE.JSONLoader();
 		//loader2.load( 'obj/models/world.js', function( geometry ) {
-		loader2.load( 'obj/models/LBJ_model_II.js', function( geometry ) {
+		loader2.load( 'obj/models/LBJ_body.js', function( geometry ) {
 		 var material = new THREE.MeshPhongMaterial( {
 				    side: THREE.DoubleSide,
                                 //emissive: 0x154360,
-							 map: textureLoader.load('Images/diffuse_Image_1_LBJ_texture_II.jpg'),
+							 map: textureLoader.load('Images/diffuse_Image_1_LBJ_V.jpg'),
                               //envMap: scCube,
-								specular: 0x050505,
-				shininess: 3
+								//specular: 0x050505,
+				shininess: 1
 				} );
  
 				mesh2 = new THREE.Mesh( geometry, material );
 				scene.add( mesh2 );
-				mesh2.scale.set( 0.4, 0.4, 0.4 );
+				mesh2.scale.set( 2.5, 2.5, 2.5 );
 				mesh2.position.set( 0, -4, 0 );
 					// Setsup mesh rotation animation.
 	  function rotateObject2(object, degreeX=0, degreeY= 0, degreeZ=0){
