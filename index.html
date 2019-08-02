@@ -64,6 +64,8 @@
 		antialias: true,
 		alpha: true
 	});
+	var fov = 45;
+	var position = new THREE.Vector3();
 	//renderer.setClearColor(new THREE.Color('lightgrey'), 0)
 	 renderer.setSize( window.innerWidth, window.innerHeight );
 	 renderer.setPixelRatio( window.devicePixelRatio );
@@ -85,7 +87,9 @@
 	//////////////////////////////////////////////////////////////////////////////////
 
 	// Create a camera
-	var camera = new THREE.Camera();
+	 			camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 1, 1000 );
+			camera.position.z = 120;
+			camera.target = new THREE.Vector3();
 	scene.add(camera);
 	
 	
@@ -190,12 +194,12 @@
 	///////////////////////////////////////////////
 	//			Add Lights						 //
 	//////////////////////////////////////////////
-	var light = new THREE.DirectionalLight( 0xccccff, 1 );
-			light.position.set( -1, 0.75, -0.5 );
+	var light = new THREE.DirectionalLight( 0xffddcc, 1 );
+			light.position.set( 1, 0.75, -0.5 );
 			scene.add( light );
 			
-			var light = new THREE.DirectionalLight( 0xffddcc, 1 );
-			light.position.set( 1, 0.75, 0.5 );
+			var light = new THREE.DirectionalLight( 0xccccff, 1 );
+			light.position.set( -1, 0.75, 0.5 );
 			scene.add( light );
 	/////////////////////////////////////////////////////
 	//     add json object                             //
@@ -229,13 +233,13 @@ transparent : true,
 					//opacityMap: textureLoader.load( 'obj/myfemale4/opacity_Image_1_genesis5.jpg' ),
 
 
-					shininess: 0
+					shininess: 25
 				} );
 
 				mesh = new THREE.Mesh( geometry, material );
 				
 				scene.add( mesh );
-				mesh.scale.set( 0.8, 0.8, 0.8 );
+				mesh.scale.set( 10, 10, 10 );
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
 			
