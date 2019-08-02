@@ -230,7 +230,7 @@ transparent : true,
 					//opacityMap: textureLoader.load( 'obj/myfemale4/opacity_Image_1_genesis5.jpg' ),
 
 
-					shininess: 5
+					shininess: 25
 				} );
 
 				mesh = new THREE.Mesh( geometry, material );
@@ -245,8 +245,8 @@ transparent : true,
 			object.rotateZ(THREE.Math.degToRad(degreeZ));
 }
 //to sit standing up
- 
-rotateObject(mesh, -90,-90,-90);
+//rotateObject(mesh, -90,-90,-90);
+rotateObject(mesh, -90,0,0);
 
 
 			} );
