@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
 <!--<meta name="viewport" container="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">-->
@@ -237,6 +237,7 @@ transparent : true,
 				
 				scene.add( mesh );
 				mesh.scale.set( 2, 2, 2 );
+				//mesh.position.set(0, -20, 0);
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
 			
@@ -245,7 +246,7 @@ transparent : true,
 			object.rotateZ(THREE.Math.degToRad(degreeZ));
 }
 //to sit standing up
-//rotateObject(mesh, -90,-90,-90);
+//rotateObject(mesh, 90,90,90);
 rotateObject(mesh, -90,0,0);
 
 
