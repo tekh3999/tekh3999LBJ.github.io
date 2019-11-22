@@ -1,9 +1,15 @@
   <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <!--<meta name="viewport" container="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">-->
 <!-- three.js library -->
-<script src='vendor/three.js/build/three.min.js'></script>
+<!--<script src='vendor/three.js/build/three.min.js'></script>-->
+<script src='build/three.js'></script>
 <!-- ar.js -->
 <script src="build/ar.js"></script>
 <script>THREEx.ArToolkitContext.baseURL = ''</script>
@@ -172,6 +178,7 @@
 	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
 		type : 'pattern',
 		patternUrl : THREEx.ArToolkitContext.baseURL + 'data/data/pattern-marker.patt',
+		 // patternUrl : THREEx.ArToolkitContext.baseURL + 'data/data/pattern-marker(6).patt',
 //patternUrl : THREEx.ArToolkitContext.baseURL + 'data/data/patt.hiro',
 		// patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji',
 		// as we controls the camera, set changeMatrixMode: 'cameraTransformMatrix'
@@ -191,52 +198,45 @@
 	///////////////////////////////////////////////
 	//			Add Lights						 //
 	//////////////////////////////////////////////
-	var light = new THREE.DirectionalLight( 0xffddcc, 1 );
+	var light = new THREE.DirectionalLight( 0xffddcc, 2 );
 			light.position.set( 1, 1, -5 );
 			scene.add( light );
 			
-			var light = new THREE.DirectionalLight( 0xccccff, 1 );
-			light.position.set( -1, 1, 0.5 );
+			var light = new THREE.AmbientLight( 0xccccff,  3);
+			light.position.set( -1, -100, 0.5 );
 			scene.add( light );
+			
+			
 	/////////////////////////////////////////////////////
-	//     add json object                             //
+	//     add json object                             /
 	/////////////////////////////////////////////////////
 	
 	loadMymodel();
 	function loadMymodel( callback ) {
 
 			var loader = new THREE.JSONLoader();
-
-
-			//loader.load('obj/myfemale4/genesisfemale-5.js', function (geometry) {
-			    //loader.load( 'obj/books/tpomA.js', function( geometry ) {
-				//loader.load( 'obj/books/bandmd.js', function( geometry ) {
-				//loader.load( 'obj/models/spaceshuttle.js', function( geometry ) {
-			loader.load( 'obj/models/LBJ_New_II.js', function( geometry ) {
+			 loader.load( 'obj/models/Whinnie_The_Pooh2.js', function( geometry ) {
 
 				var material = new THREE.MeshPhongMaterial( {
+				//var material = new THREE.MeshLambertMaterial( {
 				    specular: 0x211111,
-transparent : true,
+//transparent : true,
 		//opacity: 0.9,
-		 
-							//book
-				   // map: textureLoader.load('obj/books/diffuse_Image_1_AtlasUVs.jpg'),
-                    //ambientMap: textureLoader.load('obj/books/ambient_Image_1_AtlasUVs.jpg'),
-					map: textureLoader.load('Images/diffuse_Image_1_LBJ_fin.jpg'),
-					
-					//female
-					//map: textureLoader.load( 'obj/myfemale4/diffuse_Image_1_genesis5.jpg' ),
-					//specularMap: textureLoader.load( 'obj/myfemale4/specular_Image_1_genesis5.jpg' ),
-					//opacityMap: textureLoader.load( 'obj/myfemale4/opacity_Image_1_genesis5.jpg' ),
-
-
-					shininess:0
+		   
+				map: textureLoader.load('Images/pooh_2Diffusemap.jpg'),
+				 //	side: THREE.DoubleSide,
+                                emissive: 0x154360,
+								color: 0x996633,
+							 envMap: scCube,
+								 specular: 0x050505,
+				shininess: 25
 				} );
 
 				mesh = new THREE.Mesh( geometry, material );
-				
 				scene.add( mesh );
-				mesh.scale.set( 2, 2, 2 );
+				mesh.scale.set( 4, 4, 4 );
+				//Smooth object if mesh is triangulated 
+				mesh.geometry.computeVertexNormals(true);
 				//mesh.position.set(0, -20, 0);
 					// Setsup mesh rotation animation.
 	  function rotateObject(object, degreeX=0, degreeY= 0, degreeZ=0){
@@ -248,21 +248,130 @@ transparent : true,
 //to sit standing up
 //rotateObject(mesh, 90,90,90);
 rotateObject(mesh, -90,0,0);
+} );
+}
 
+		////////////
+		//	Honey//
+		///////////
+		loadMymodelI();
+	function loadMymodelI( callback ) {
+		var loader2 = new THREE.JSONLoader();
+		loader2.load( 'obj/models/pooh_honey.js', function( geometry ) {
+		 
+		 var material = new THREE.MeshPhongMaterial( {
+		 map: textureLoader.load('Images/pooh_honey.jpg'),
+								side: THREE.DoubleSide,
+                                emissive: 0x154360,
+								color: 0x996633,
+							 envMap: scCube,
+								 specular: 0x050505,
+				shininess: 75
+				} );
+ 
+				mesh2 = new THREE.Mesh( geometry, material );
+				scene.add( mesh2 );
+				mesh2.scale.set( 4, 4, 4 );
+				 mesh2.geometry.computeVertexNormals(true);
+					// Setsup mesh rotation animation.
+	  function rotateObject2(object, degreeX=0, degreeY= 0, degreeZ=0){
+			
+			object.rotateX(THREE.Math.degToRad(degreeX));
+			object.rotateY(THREE.Math.degToRad(degreeY));
+			object.rotateZ(THREE.Math.degToRad(degreeZ));
+}
+//to sit standing up
+//rotateObject(mesh, -90,-90,-90);
+rotateObject2(mesh2, -90,0,0);
+} );
+}
 
-			} );
+	////////////
+		//	Honey_Bee//
+		///////////
+		loadMymodelII();
+	function loadMymodelII( callback ) {
+		var loader3 = new THREE.JSONLoader();
+		loader3.load( 'obj/models/honey_bee.js', function( geometry ) {
+		 var material = new THREE.MeshPhongMaterial( {
+		    map: textureLoader.load('Images/mybee1_1DiffuseMap.jpg'),
+		  emissive: 0x154360,
+								color: 0x996633,
+							 envMap: scCube,
+								 specular: 0x050505,
+				shininess: 75
+				} );
+ 
+				mesh3 = new THREE.Mesh( geometry, material );
+				scene.add( mesh3 );
+				mesh3.scale.set( 4, 4, 4 );
+				 mesh3.geometry.computeVertexNormals(true);
+				 
+					// Setup mesh rotation animation.
+	  function rotateObject3(object, degreeX=0, degreeY= 0, degreeZ=0){
+			
+			object.rotateX(THREE.Math.degToRad(degreeX));
+			object.rotateY(THREE.Math.degToRad(degreeY));
+			object.rotateZ(THREE.Math.degToRad(degreeZ));
+}
+//to sit standing up
+//rotateObject(mesh, -90,-90,-90);
+rotateObject3(mesh3, -90,0,0);
+} );
+}
 
-		}
+ 
+	
+////////////////////////////
+		//			Skybox		  //
+		///////////////////////////
+		var sphere, cube;
+	 var scCube;
+    var selectableObjs = [];
+    var width = window.innerWidth, height = window.innerHeight;
+	 //Add other scene elements
+        drawSimpleSkybox();
+      // drawShapes();
+		
+		function drawSimpleSkybox() {
+        // define path and box sides images
+        var path = 'textures/';
+        var sides = [ path + 'sbox_px.jpg', path + 'sbox_nx.jpg', path + 'sbox_py.jpg', path + 'sbox_py.jpg', path + 'sbox_pz.jpg', path + 'sbox_nz.jpg' ];
 
+        // load images
+        scCube = THREE.ImageUtils.loadTextureCube(sides);
+        scCube.format = THREE.RGBFormat;
+
+        // prepare skybox material (shader)
+        var skyShader = THREE.ShaderLib["cube"];
+        skyShader.uniforms["tCube"].value = scCube;
+        var skyMaterial = new THREE.ShaderMaterial( {
+            fragmentShader: skyShader.fragmentShader, vertexShader: skyShader.vertexShader,
+            uniforms: skyShader.uniforms, depthWrite: false, side: THREE.BackSide
+        });
+
+        // create Mesh with cube geometry and add to the scene
+        var skyBox = new THREE.Mesh(new THREE.BoxGeometry(500, 500, 500), skyMaterial);
+        skyMaterial.needsUpdate = true;
+
+        skyBox.UserData = {name:"skyBox"};
+
+      //scene.add(skyBox);
+ 
+		
+    }
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
 
-	/// render the scene
+	// render the scene
 	onRenderFcts.push(function(){
 		renderer.render( scene, camera );
 		
-		//mesh.rotation.y = mesh.rotation.y + 0.01;
+		mesh.rotation.y = mesh.rotation.y + 0.01;
+		mesh2.rotation.y = mesh2.rotation.y + 0.01;
+		mesh3.rotation.y = mesh3.rotation.y + 0.01;
+	 
 	})
 
 	// run the rendering loop
