@@ -214,8 +214,8 @@
 	loadMymodel();
 	function loadMymodel( callback ) {
 
-			var loader = new THREE.JSONLoader();
-			 loader.load( 'obj/models/Whinnie_The_Pooh2.js', function( geometry ) {
+			 var loader = new THREE.JSONLoader();
+			 loader.load( 'obj/models/Whinnie_The_Pooh3.js', function( geometry ) {
 
 				var material = new THREE.MeshPhongMaterial( {
 				//var material = new THREE.MeshLambertMaterial( {
@@ -223,7 +223,7 @@
 //transparent : true,
 		//opacity: 0.9,
 		   
-				map: textureLoader.load('Images/pooh_2Diffusemap.jpg'),
+				map: textureLoader.load('Images/ph_diffuse_a!.jpg'),
 				 //	side: THREE.DoubleSide,
                                 emissive: 0x154360,
 								color: 0x996633,
